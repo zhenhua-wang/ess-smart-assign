@@ -25,11 +25,15 @@ Returns the value of BODY and does not change point."
 (defun ess-smart-assign ()
   "replace = with <- when assigning variables"
   (interactive)
-  (if (or (ess-smart-inside-call-p)
-          (ess-smart-inside-brackets-p)
-          (ess-inside-string-or-comment-p))
-      (insert "=")
-    (insert "<-")))
+  (let ((beg-2 (save-excursion (backward-char 2) (point)))
+        (beg-1 (save-excursion (backward-char 1) (point)))
+        (end (point)))
+    (cond ((or (ess-smart-inside-call-p)
+               (ess-smart-inside-brackets-p)
+               (ess-inside-string-or-comment-p)
+               (string= (buffer-substring beg-1 end) "=")) (insert "="))
+          ((string= (buffer-substring beg-2 end) "<-") (replace-string "<-" "=" nil beg-2 end))
+          (t (insert "<-")))))
 
 
 (define-key ess-r-mode-map "=" #'ess-smart-assign)
