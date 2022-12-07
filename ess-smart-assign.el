@@ -23,6 +23,7 @@ Returns the value of BODY and does not change point."
       (esa--with-temporary-insert "]" :after (ess-inside-brackets-p))))
 
 (defun ess-smart-assign ()
+  "replace = with <- when assigning variables"
   (interactive)
   (if (or (ess-smart-inside-call-p)
           (ess-smart-inside-brackets-p)
