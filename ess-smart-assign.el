@@ -28,7 +28,7 @@ Returns the value of BODY and does not change point."
           (ess-smart-inside-brackets-p)
           (ess-inside-string-or-comment-p))
       (insert "=")
-    (insert "->")))
+    (insert "<-")))
 
 
 (define-key ess-r-mode-map "=" #'ess-smart-assign)
