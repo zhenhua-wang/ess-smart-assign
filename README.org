@@ -1,0 +1,16 @@
+#+TITLE: ESS smart assign
+#+SUBTITLE: README
+#+AUTHOR: Zhenhua Wang
+
+* Usage
+#+begin_src emacs-lisp
+(use-package ess-smart-assign
+  :after ess
+  :straight (ess-smart-assign :host github :repo "zhenhua-wang/ess-smart-assign")
+  :bind ((:map ess-r-mode-map
+               ("=" . ess-smart-assign))
+         (:map inferior-ess-r-mode-map
+               ("=" . ess-smart-assign))))
+#+end_src
+
+

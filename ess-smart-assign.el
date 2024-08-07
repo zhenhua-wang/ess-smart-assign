@@ -35,9 +35,5 @@ Returns the value of BODY and does not change point."
           ((string= (buffer-substring beg-2 end) "<-") (replace-string "<-" "=" nil beg-2 end))
           (t (insert "<-")))))
 
-
-(define-key ess-r-mode-map "=" #'ess-smart-assign)
-(define-key inferior-ess-r-mode-map "=" #'ess-smart-assign)
-
 (provide 'ess-smart-assign)
 ;;; ess-smart-assign.el ends here
