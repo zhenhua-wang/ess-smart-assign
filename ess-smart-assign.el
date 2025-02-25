@@ -31,7 +31,7 @@ Returns the value of BODY and does not change point."
     (cond ((or (ess-smart-inside-call-p)
                (ess-smart-inside-brackets-p)
                (ess-inside-string-or-comment-p)
-               (member (buffer-substring beg-1 end) '("=" "<" ">")))
+               (member (buffer-substring beg-1 end) '("=" "<" ">" "!")))
            (insert "="))
           ((string= (buffer-substring beg-2 end) "<-") (replace-string "<-" "=" nil beg-2 end))
           (t (insert "<-")))))
